@@ -53,6 +53,6 @@ Unity上で音声をどれだけ扱えるかが未知数ですが、時間が許
 こちらはアイデアとしては面白いですが、実装するとなるとマップの概念や敵ごとのダメージ計算、接触判定などが難しいので余裕があれば、といった感じでしょう。
 
 ## お役立ち情報（参考リンク）
-AudioSourceとAudioClipについて:
+* Audio SourceとAudio Clipについて:
 [Unityにおける音の出し方（まずはここから！）](https://www.sejuku.net/blog/83569)
-
+* マイク音の取得：[Unity:マイクの音量を取得する(1)](https://qiita.com/ELIXIR/items/ff503d48c24092c05843)
