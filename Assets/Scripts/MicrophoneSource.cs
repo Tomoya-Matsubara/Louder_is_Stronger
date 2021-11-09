@@ -5,6 +5,8 @@ using UnityEngine;
 public class MicrophoneSource : MonoBehaviour
 {
     AudioSource audioSource;  // 音源となるコンポーネント（Audio Source）
+    public float sumAmp = 0f; // サンプリング中の振幅総和（音量の総和に相当）
+    public float meanAmp = 0f; // サンプリング区間の平均振幅（音量平均）
 
     // Start is called before the first frame update
     void Start()
@@ -39,8 +41,7 @@ public class MicrophoneSource : MonoBehaviour
     // channel: 音源の数（今は１のはず）
     private void OnAudioFilterRead(float[] data, int channels)
     {
-        float sumAmp = 0f;  // サンプリング中の振幅総和（音量の総和に相当）
-        float meanAmp = 0f; // サンプリング区間の平均振幅（音量平均）
+        sumAmp = 0f;
         foreach (float amp in data)
         {
             sumAmp += Mathf.Abs(amp); // 振幅の絶対値（音量）を足す
