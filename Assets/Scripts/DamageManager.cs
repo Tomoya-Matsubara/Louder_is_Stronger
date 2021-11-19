@@ -10,7 +10,7 @@ public class DamageManager : MonoBehaviour
     public GameObject damageTextObject; // ダメージを表示するオブジェクト
     private TextMeshProUGUI damageText; // ダメージを表示するためのテキストエリア
     MicrophoneSource microVar; // MicrophoneSource.csの変数
-    private float damage;
+    public float damage;
 
     public int maxHP = 10;
     public float currentHP;
@@ -51,7 +51,7 @@ public class DamageManager : MonoBehaviour
             // ダメージを取得
             damage = microVar.meanAmp * 1000;
 
-            if (damage > 0.5) 
+            if (damage > 5) 
             {
                 // ダメージは 0〜1000
                 damageText.text = $"{(damage).ToString("f1")} ダメージ！";

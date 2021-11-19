@@ -10,10 +10,13 @@ public class PlayerBehaviourScript : MonoBehaviour
     // 設定したフラグの名前
     private const string key_isShout = "isShout";
 
+    DamageManager damageVar;
+
     // Start is called before the first frame update
     void Start()
     {
         this.animator = GetComponent<Animator>();
+        damageVar = GameObject.Find("AudioObject").GetComponent<DamageManager>();
     }
 
     // Update is called once per frame
@@ -21,7 +24,7 @@ public class PlayerBehaviourScript : MonoBehaviour
     {
         // WaitからShoutに切り替える処理
         // スペースキーを押下している
-        if (Input.GetKey(KeyCode.Space))
+        if (damageVar.damage > 5)
         {
             // WaitからShoutに遷移する
             this.animator.SetBool(key_isShout, true);
