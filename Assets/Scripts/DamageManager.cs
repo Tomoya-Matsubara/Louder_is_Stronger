@@ -16,6 +16,7 @@ public class DamageManager : MonoBehaviour
     public float currentHP;
     public Slider HPSlider;
     ShowDamageMessage dmVar;
+    ScoreManager smVar;
 
     public float timeOut;  // timeOut[s]ごとに処理を実行
     private float timeElapsed; // 経過時間のカウンター
@@ -29,6 +30,9 @@ public class DamageManager : MonoBehaviour
 
         // MicrophoneSource.csの変数を取得
         microVar = GetComponent<MicrophoneSource>();
+
+        // ScoreManager.csの変数取得
+        smVar = GameObject.Find("ScoreManagerObject").GetComponent<ScoreManager>();
 
         // HPバーの初期設定
         HPSlider.value = 1;
@@ -57,6 +61,7 @@ public class DamageManager : MonoBehaviour
             if (damage > 5) 
             {
                 damage = checkCriticalHit(damage);
+                smVar.updateScoreWithDamage((int) damage);
 
                 // ダメージは 0〜1000
                 damageText.text = $"{(damage).ToString("f1")} ダメージ！";
