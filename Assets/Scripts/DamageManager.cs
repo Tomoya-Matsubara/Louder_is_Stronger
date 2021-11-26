@@ -56,6 +56,8 @@ public class DamageManager : MonoBehaviour
 
             if (damage > 5) 
             {
+                damage = checkCriticalHit(damage);
+
                 // ダメージは 0〜1000
                 damageText.text = $"{(damage).ToString("f1")} ダメージ！";
                 Debug.Log(damageText.text);
@@ -82,5 +84,14 @@ public class DamageManager : MonoBehaviour
 
     private void showDamage(float damage) {
         dmVar.showDamageText(damage);
+    }
+
+    // 会心の一撃設定：乱数が一定値を越えればダメージ10倍
+    private float checkCriticalHit(float damage) {
+        if (Random.value > 0.9) {
+            damage *= 10;
+            Debug.Log("<color=red>会心の一撃！</color>");
+        }
+        return damage;
     }
 }
