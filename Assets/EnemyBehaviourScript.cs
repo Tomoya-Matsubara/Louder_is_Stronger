@@ -11,10 +11,13 @@ public class EnemyBehaviourScript : MonoBehaviour
     private const string key_isAttacked = "isAttacked";
     private const string key_isDie = "isDie";
 
+    DamageManager damageVar;
+
     // Start is called before the first frame update
     void Start()
     {
         this.animator = GetComponent<Animator>();
+        damageVar = GameObject.Find("AudioObject").GetComponent<DamageManager>();
     }
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class EnemyBehaviourScript : MonoBehaviour
             this.animator.SetBool(key_isAttacked, false);
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (damageVar.currentHP < 0)
         {
             // Wait or AttackedからDieに遷移する
             this.animator.SetBool(key_isDie, true);

@@ -15,6 +15,7 @@ public class DamageManager : MonoBehaviour
     public int maxHP = 10;
     public float currentHP;
     public Slider HPSlider;
+    ShowDamageMessage dmVar;
 
     public float timeOut;  // timeOut[s]ごとに処理を実行
     private float timeElapsed; // 経過時間のカウンター
@@ -24,6 +25,7 @@ public class DamageManager : MonoBehaviour
     {
         // ダメージを表示するためのテキストエリアを取得
         damageText = damageTextObject.GetComponent<TextMeshProUGUI>();
+        dmVar = GameObject.Find("DamageTexts").GetComponent<ShowDamageMessage>();
 
         // MicrophoneSource.csの変数を取得
         microVar = GetComponent<MicrophoneSource>();
@@ -38,6 +40,7 @@ public class DamageManager : MonoBehaviour
     void Update()
     {
         computeDamage();
+        dmVar.fadeOutText();
     }
 
 
@@ -57,7 +60,7 @@ public class DamageManager : MonoBehaviour
                 damageText.text = $"{(damage).ToString("f1")} ダメージ！";
                 Debug.Log(damageText.text);
                 updateHP();
-                
+                showDamage(damage);
             }
 
             timeElapsed = 0.0f;
@@ -75,5 +78,9 @@ public class DamageManager : MonoBehaviour
         if (currentHP <= 0) {
             damageText.text = $"敵を倒した！";
         }
+    }
+
+    private void showDamage(float damage) {
+        dmVar.showDamageText(damage);
     }
 }
