@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 public class ScoreManager : MonoBehaviour
 {
-    public int score;
+    public static int score = 0;
     public GameObject scoreTextObject;
     private TextMeshProUGUI scoreText;
     public GameObject timer;
@@ -13,7 +13,6 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
         scoreText = scoreTextObject.GetComponent<TextMeshProUGUI>();
         updateScoreText();
     }

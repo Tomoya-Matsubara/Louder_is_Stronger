@@ -2,32 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class EnemyLevel : MonoBehaviour
 {
-    int startlevel = 1;
-    public static int currentlevel;
-    public Text levelText;
+    public static int currentLevel = 0;
+    public static int maxHP = 100;
+    public int levelHP;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentlevel = startlevel;
-        DontDestroyOnLoad(levelText);
+        levelHP = maxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-        levelText.text = currentlevel.ToString();
+
     }
 
-    public void UpdateLevel() {
-        currentlevel += 1;
+    public static void UpdateLevel() {
+        currentLevel += 1;
+        maxHP += (int) Math.Round(50 * UnityEngine.Random.value);
     }
 
-    public void StartLevel() {
-        currentlevel = 1;
+    public static void StartLevel() {
+        currentLevel = 0;
+        maxHP = 100;
     }
 
 }

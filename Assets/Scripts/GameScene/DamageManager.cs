@@ -13,9 +13,8 @@ public class DamageManager : MonoBehaviour
     MicrophoneSource microVar; // MicrophoneSource.csの変数
     public float damage;
 
-    public int maxHP = 10;
+    public int maxHP;
     public float currentHP;
-    public int icurrentHP;
     public Slider HPSlider;
     public GameObject textHPObject = null;
     public Text textHP;
@@ -26,7 +25,6 @@ public class DamageManager : MonoBehaviour
     public float timeOut;  // timeOut[s]ごとに処理を実行
     private float timeElapsed; // 経過時間のカウンター
 
-    public EnemyLevel enemylevel = new EnemyLevel();
 
     // Start is called before the first frame update
     void Start()
@@ -43,17 +41,22 @@ public class DamageManager : MonoBehaviour
 
         // HPバーの初期設定
         HPSlider.value = 1;
-        currentHP = maxHP;
-        Debug.Log($"初期HPは{currentHP}");
 
         textHP = textHPObject.GetComponent<Text>();
-        //textHP.text = icurrentHP.ToString() + "/" + maxHP.ToString();
+
+        // 毎回スクリプトが読み込まれるたびにレベルアップ
+        EnemyLevel.UpdateLevel();
+        Debug.Log($"レベル {EnemyLevel.currentLevel}です。");
+
+        maxHP = EnemyLevel.maxHP;
+        currentHP = maxHP;
+        // Debug.Log($"初期HPは{currentHP}");
     }
 
     // Update is called once per frame
     void Update(){
         computeDamage();
-        textHP.text = icurrentHP.ToString() + "/" + maxHP.ToString();
+        textHP.text = $"{(int)currentHP}/{maxHP}";
         dmVar.fadeOutText();
     }
 
@@ -74,8 +77,8 @@ public class DamageManager : MonoBehaviour
                 smVar.updateScoreWithDamage((int) damage);
 
                 // ダメージは 0〜1000
-                damageText.text = $"{(damage).ToString("f1")} ダメージ！";
-                Debug.Log(damageText.text);
+                // damageText.text = $"{(damage).ToString("f1")} ダメージ！";
+                // Debug.Log(damageText.text);
                 updateHP();
                 showDamage(damage);
             }
@@ -87,29 +90,38 @@ public class DamageManager : MonoBehaviour
     private void updateHP()
     {
         currentHP -= damage;
-        icurrentHP = (int)currentHP;
         HPSlider.value = currentHP / maxHP;
 
-        Debug.Log($"現在のHP：{currentHP}");
-        Debug.Log($"スライダーの値： {HPSlider.value}");
+        // Debug.Log($"現在のHP：{currentHP}");
+        // Debug.Log($"スライダーの値： {HPSlider.value}");
 
         if (currentHP <= 0) {
+            damage = 0;
+            currentHP = 0;
             damageText.text = $"敵を倒した！";
-            SceneManager.LoadScene("ResultScene");
-            enemylevel.UpdateLevel();
+            
+            // 3秒後にシーン切り替え（敵が倒れるアニメーションを見るため）
+            Invoke(nameof(MoveToResultScene), 3.0f);
         }
     }
 
-    private void showDamage(float damage) {
+    private void showDamage(float damage) 
+    {
         dmVar.showDamageText(damage);
     }
 
     // 会心の一撃設定：乱数が一定値を越えればダメージ10倍
-    private float checkCriticalHit(float damage) {
+    private float checkCriticalHit(float damage) 
+    {
         if (Random.value > 0.9) {
             damage *= 10;
-            Debug.Log("<color=red>会心の一撃！</color>");
+            // Debug.Log("<color=red>会心の一撃！</color>");
         }
         return damage;
+    }
+
+    private void MoveToResultScene() 
+    {
+        SceneManager.LoadScene("ResultScene");
     }
 }

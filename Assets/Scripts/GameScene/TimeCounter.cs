@@ -9,8 +9,6 @@ public class TimeCounter : MonoBehaviour
     private float countdown = 30.0f;
     public Text timeText;
     int retime;
-
-    public EnemyLevel enemylevel = new EnemyLevel();
     
     // ダメージが0になったことを検知するため
     DamageManager damageVar;
@@ -34,7 +32,7 @@ public class TimeCounter : MonoBehaviour
             if (retime == 0) 
             {
                 SceneManager.LoadScene("GameoverScene");
-                enemylevel.StartLevel();
+                EnemyLevel.StartLevel();
             }
         }
         
