@@ -11,5 +11,9 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene("TitleScene");
     }
 
-    
+    public void ResultGameButton() {
+        SceneManager.LoadScene("GameScene");
+    }
+
+
 }

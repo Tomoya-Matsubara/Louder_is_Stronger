@@ -10,6 +10,8 @@ public class TimeCounter : MonoBehaviour
     public Text timeText;
     int retime;
 
+    public EnemyLevel enemylevel = new EnemyLevel();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,8 @@ public class TimeCounter : MonoBehaviour
         timeText.text = retime.ToString();
 
         if(retime == 0) {
-            SceneManager.LoadScene("ResultScene");
+            SceneManager.LoadScene("GameoverScene");
+            enemylevel.StartLevel();
         }
         
     }

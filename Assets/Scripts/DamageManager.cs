@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DamageManager : MonoBehaviour
 {
@@ -14,10 +15,15 @@ public class DamageManager : MonoBehaviour
 
     public int maxHP = 10;
     public float currentHP;
+    public int icurrentHP;
     public Slider HPSlider;
+    public GameObject textHPObject = null;
+    public Text textHP;
 
     public float timeOut;  // timeOut[s]ごとに処理を実行
     private float timeElapsed; // 経過時間のカウンター
+
+    public EnemyLevel enemylevel = new EnemyLevel();
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +38,15 @@ public class DamageManager : MonoBehaviour
         HPSlider.value = 1;
         currentHP = maxHP;
         Debug.Log($"初期HPは{currentHP}");
+
+        textHP = textHPObject.GetComponent<Text>();
+        //textHP.text = icurrentHP.ToString() + "/" + maxHP.ToString();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         computeDamage();
+        textHP.text = icurrentHP.ToString() + "/" + maxHP.ToString();
     }
 
 
@@ -49,9 +58,9 @@ public class DamageManager : MonoBehaviour
         {
 
             // ダメージを取得
-            damage = microVar.meanAmp * 1000;
+            damage = microVar.meanAmp * 5000;
 
-            if (damage > 5) 
+            if (damage > 1) 
             {
                 // ダメージは 0〜1000
                 damageText.text = $"{(damage).ToString("f1")} ダメージ！";
@@ -67,6 +76,7 @@ public class DamageManager : MonoBehaviour
     private void updateHP()
     {
         currentHP -= damage;
+        icurrentHP = (int)currentHP;
         HPSlider.value = currentHP / maxHP;
 
         Debug.Log($"現在のHP：{currentHP}");
@@ -74,6 +84,8 @@ public class DamageManager : MonoBehaviour
 
         if (currentHP <= 0) {
             damageText.text = $"敵を倒した！";
+            SceneManager.LoadScene("ResultScene");
+            enemylevel.UpdateLevel();
         }
     }
 }
