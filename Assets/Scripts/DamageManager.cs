@@ -17,6 +17,9 @@ public class DamageManager : MonoBehaviour
     public float currentHP;
     public int icurrentHP;
     public Slider HPSlider;
+    public GameObject textHPObject = null;
+    public Text textHP;
+    
     ShowDamageMessage dmVar;
     ScoreManager smVar;
 
@@ -30,6 +33,7 @@ public class DamageManager : MonoBehaviour
     {
         // ダメージを表示するためのテキストエリアを取得
         damageText = damageTextObject.GetComponent<TextMeshProUGUI>();
+        dmVar = GameObject.Find("DamageTexts").GetComponent<ShowDamageMessage>();
 
         // MicrophoneSource.csの変数を取得
         microVar = GetComponent<MicrophoneSource>();
@@ -50,6 +54,7 @@ public class DamageManager : MonoBehaviour
     void Update(){
         computeDamage();
         textHP.text = icurrentHP.ToString() + "/" + maxHP.ToString();
+        dmVar.fadeOutText();
     }
 
 
@@ -72,7 +77,7 @@ public class DamageManager : MonoBehaviour
                 damageText.text = $"{(damage).ToString("f1")} ダメージ！";
                 Debug.Log(damageText.text);
                 updateHP();
-                
+                showDamage(damage);
             }
 
             timeElapsed = 0.0f;
