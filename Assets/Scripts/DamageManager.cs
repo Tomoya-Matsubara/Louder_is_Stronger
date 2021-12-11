@@ -17,8 +17,8 @@ public class DamageManager : MonoBehaviour
     public float currentHP;
     public int icurrentHP;
     public Slider HPSlider;
-    public GameObject textHPObject = null;
-    public Text textHP;
+    ShowDamageMessage dmVar;
+    ScoreManager smVar;
 
     public float timeOut;  // timeOut[s]ごとに処理を実行
     private float timeElapsed; // 経過時間のカウンター
@@ -33,6 +33,9 @@ public class DamageManager : MonoBehaviour
 
         // MicrophoneSource.csの変数を取得
         microVar = GetComponent<MicrophoneSource>();
+
+        // ScoreManager.csの変数取得
+        smVar = GameObject.Find("ScoreManagerObject").GetComponent<ScoreManager>();
 
         // HPバーの初期設定
         HPSlider.value = 1;
@@ -62,6 +65,9 @@ public class DamageManager : MonoBehaviour
 
             if (damage > 1) 
             {
+                damage = checkCriticalHit(damage);
+                smVar.updateScoreWithDamage((int) damage);
+
                 // ダメージは 0〜1000
                 damageText.text = $"{(damage).ToString("f1")} ダメージ！";
                 Debug.Log(damageText.text);
@@ -87,5 +93,18 @@ public class DamageManager : MonoBehaviour
             SceneManager.LoadScene("ResultScene");
             enemylevel.UpdateLevel();
         }
+    }
+
+    private void showDamage(float damage) {
+        dmVar.showDamageText(damage);
+    }
+
+    // 会心の一撃設定：乱数が一定値を越えればダメージ10倍
+    private float checkCriticalHit(float damage) {
+        if (Random.value > 0.9) {
+            damage *= 10;
+            Debug.Log("<color=red>会心の一撃！</color>");
+        }
+        return damage;
     }
 }

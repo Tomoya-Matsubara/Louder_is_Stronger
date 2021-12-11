@@ -11,23 +11,31 @@ public class TimeCounter : MonoBehaviour
     int retime;
 
     public EnemyLevel enemylevel = new EnemyLevel();
+    
+    // ダメージが0になったことを検知するため
+    DamageManager damageVar;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        damageVar = GameObject.Find("AudioObject").GetComponent<DamageManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        countdown -= Time.deltaTime;
-        retime = (int)countdown;
-        timeText.text = retime.ToString();
+        // タイマーの更新は敵が生きている場合のみ
+        if (damageVar.currentHP > 0) 
+        {
+            countdown -= Time.deltaTime;
+            retime = (int)countdown;
+            timeText.text = retime.ToString();
 
-        if(retime == 0) {
-            SceneManager.LoadScene("GameoverScene");
-            enemylevel.StartLevel();
+            if (retime == 0) 
+            {
+                SceneManager.LoadScene("GameoverScene");
+                enemylevel.StartLevel();
+            }
         }
         
     }
