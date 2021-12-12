@@ -49,7 +49,7 @@ public class MicrophoneSource : MonoBehaviour
 
         // 音量総和をデータ数（サンプリング数）で割って平均音量とする
         meanAmp = sumAmp / (float) data.Length;
-        Debug.Log($"平均音量は {(meanAmp * 1000).ToString("f1")} です。");
+        // Debug.Log($"平均音量は {(meanAmp * 1000).ToString("f1")} です。");
 
         // meanAmp の値で音の大きさは判別できるので、ここを使えばダメージ計算は比較的簡単にできそう
         // 音の長さを測定したい場合は一定の値を超えているかを保存するフラグを作り、
