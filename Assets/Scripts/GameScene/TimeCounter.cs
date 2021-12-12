@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 public class TimeCounter : MonoBehaviour
 {
     private float countdown = 30.0f;
-    public Text timeText;
-    int retime;
+    private Text timeText;
     
     // ダメージが0になったことを検知するため
     DamageManager damageVar;
@@ -17,6 +16,7 @@ public class TimeCounter : MonoBehaviour
     void Start()
     {
         damageVar = GameObject.Find("AudioObject").GetComponent<DamageManager>();
+        timeText = gameObject.GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -26,10 +26,9 @@ public class TimeCounter : MonoBehaviour
         if (damageVar.currentHP > 0) 
         {
             countdown -= Time.deltaTime;
-            retime = (int)countdown;
-            timeText.text = retime.ToString();
+            timeText.text = $"Time: {(int) countdown}";
 
-            if (retime == 0) 
+            if (countdown < 0) 
             {
                 SceneManager.LoadScene("GameoverScene");
                 EnemyLevel.StartLevel();
