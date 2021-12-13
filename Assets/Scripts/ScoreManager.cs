@@ -37,4 +37,9 @@ public class ScoreManager : MonoBehaviour
     private void updateScoreText() {
         scoreText.text = $"{score}";
     }
+
+    public static void startScore() {
+        score = 0;
+    }
+
 }
