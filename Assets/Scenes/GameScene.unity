@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e8158a8ce827048b1971ba4a00cbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdown: 30
 --- !u!1 &231244839
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,10 +392,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.08477509
-    width: 1
-    height: 0.8304498
+    x: 0.00012651086
+    y: 0
+    width: 0.999747
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1127,7 +1128,8 @@ AudioSource:
   m_GameObject: {fileID: 839374788}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 348933258550248263, guid: b159a7c19344e495d82909a4df6b0454,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: b1732465f9e1c46f48e1b66f9ecef517, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1606,7 +1608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1424060272
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1623,7 +1625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 107, y: 400}
+  m_AnchoredPosition: {x: 172, y: 400}
   m_SizeDelta: {x: 1010.9, y: 10}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1424060273
