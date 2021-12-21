@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimeCounter : MonoBehaviour
 {
-    private float countdown = 30.0f;
+    public float countdown = 30.0f;
     private Text timeText;
     
     // ダメージが0になったことを検知するため
