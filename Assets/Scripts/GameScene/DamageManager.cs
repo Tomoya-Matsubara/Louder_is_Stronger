@@ -29,8 +29,9 @@ public class DamageManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ダメージを表示するためのテキストエリアを取得
-        damageText = damageTextObject.GetComponent<TextMeshProUGUI>();
+        // スリープ機能無効化（自動ロックしないようにする）
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         dmVar = GameObject.Find("DamageTexts").GetComponent<ShowDamageMessage>();
 
         // MicrophoneSource.csの変数を取得
@@ -98,6 +99,10 @@ public class DamageManager : MonoBehaviour
         if (currentHP <= 0) {
             damage = 0;
             currentHP = 0;
+
+            damageTextObject.SetActive(true);
+            // ダメージを表示するためのテキストエリアを取得
+            damageText = damageTextObject.GetComponent<TextMeshProUGUI>();
             damageText.text = $"敵を倒した！";
             
             // 3秒後にシーン切り替え（敵が倒れるアニメーションを見るため）
