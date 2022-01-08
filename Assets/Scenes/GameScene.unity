@@ -392,10 +392,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.00043705106
-    y: 0
-    width: 0.9991259
-    height: 1
+    x: 0
+    y: 0.00042194128
+    width: 1
+    height: 0.9991561
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1275,6 +1275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy1: {fileID: 5535647646396653931, guid: 1dacc378b7a85e64696e56ce8d0ce8a7, type: 3}
   enemy2: {fileID: 8597698371886135454, guid: 60ab07b23a75fbf458c80cba08df9edb, type: 3}
+  enemy4: {fileID: 1919012471076396, guid: 635626be9336df44a82390facbb78bc2, type: 3}
+  enemy5: {fileID: 1774625739149480, guid: 3ced82d85262685468f377b257ee3e26, type: 3}
+  enemy6: {fileID: 7487410016656624447, guid: c25328e897a63ac408776b31a8ebd169, type: 3}
+  enemy7: {fileID: 6860756994242604922, guid: 71d8955b7d3cd3844b7d2045414daed9, type: 3}
 --- !u!1 &1011822714
 GameObject:
   m_ObjectHideFlags: 0

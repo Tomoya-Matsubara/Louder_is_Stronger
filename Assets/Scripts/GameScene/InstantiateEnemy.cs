@@ -6,11 +6,15 @@ public class InstantiateEnemy : MonoBehaviour
 {
     public GameObject enemy1;
     public GameObject enemy2;
+    public GameObject enemy4;
+    public GameObject enemy5;
+    public GameObject enemy6;
+    public GameObject enemy7;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject[] enemies = {enemy1, enemy2};
+        GameObject[] enemies = {enemy1, enemy2, enemy4, enemy5, enemy6, enemy7};
         int index = (EnemyLevel.currentLevel == 0) ? 0 : (EnemyLevel.currentLevel + 1) % enemies.Length;
         
         Debug.Log($"====InstantiateEnemy.cs====\nレベル：{EnemyLevel.currentLevel}\n配列の長さ：{enemies.Length}\nインデックス：{index}\n========================");
