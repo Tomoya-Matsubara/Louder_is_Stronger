@@ -354,11 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   m_Material: {fileID: 1938409103}
-=======
-  m_Material: {fileID: 900725190}
->>>>>>> 25cd82ecf5e6ca76ac2594d5b1d769b2b1137aa7
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -656,15 +652,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
     y: 0.0006725788
     width: 1
     height: 0.99865484
-=======
-    y: 0.00011742115
-    width: 1
-    height: 0.99976516
->>>>>>> 25cd82ecf5e6ca76ac2594d5b1d769b2b1137aa7
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1032,7 +1022,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919672203}
   m_CullTransparentMesh: 0
-<<<<<<< HEAD
 --- !u!21 &1938409103
 Material:
   serializedVersion: 6
@@ -1118,8 +1107,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-=======
->>>>>>> 25cd82ecf5e6ca76ac2594d5b1d769b2b1137aa7
 --- !u!1 &2075308023
 GameObject:
   m_ObjectHideFlags: 0
