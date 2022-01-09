@@ -24,5 +24,4 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-
 }
