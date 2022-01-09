@@ -11,7 +11,7 @@ public class ShowDamageMessage : MonoBehaviour
 
     public GameObject damageText;
 
-    DamageManager damageVar;
+    //DamageManager damageVar;
 
     // Start is called before the first frame update
     void Start()
