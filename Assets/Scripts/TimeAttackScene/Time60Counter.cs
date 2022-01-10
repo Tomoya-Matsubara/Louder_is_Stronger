@@ -23,7 +23,7 @@ public class Time60Counter : MonoBehaviour
 
         if (countdown < 0) 
         {
-            SceneManager.LoadScene("GameoverScene");
+            SceneManager.LoadScene("TimeAttackResultScene");
             EnemyLevel.StartLevel();
         }
         

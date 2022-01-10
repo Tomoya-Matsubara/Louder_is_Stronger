@@ -12,6 +12,11 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void TimeAttackButton() {
+        ScoreManager.startScore();
+        SceneManager.LoadScene("TimeAttackScene");
+    }
+
     public void ManualButton() {
         SceneManager.LoadScene("ManualScene");
     }
