@@ -70,7 +70,7 @@ public class DamageManager : MonoBehaviour
         {
 
             // ダメージを取得
-            damage = microVar.meanAmp * 5000;
+            damage = microVar.meanAmp * 500;
 
             if (damage > 1) 
             {
