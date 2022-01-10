@@ -104,6 +104,7 @@ public class DamageManager : MonoBehaviour
             // ダメージを表示するためのテキストエリアを取得
             damageText = damageTextObject.GetComponent<TextMeshProUGUI>();
             damageText.text = $"敵を倒した！";
+            damageText.color = Color.red;
             
             // 3秒後にシーン切り替え（敵が倒れるアニメーションを見るため）
             Invoke(nameof(MoveToResultScene), 3.0f);
