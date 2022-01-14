@@ -18,6 +18,7 @@ public class DamageManager : MonoBehaviour
     public Slider HPSlider;
     public GameObject textHPObject = null;
     public Text textHP;
+    public bool isDamage;
     
     ShowDamageMessage dmVar;
     ScoreManager smVar;
@@ -55,7 +56,8 @@ public class DamageManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){
+    void Update()
+    {
         computeDamage();
         textHP.text = $"{(int)currentHP}/{maxHP}";
         dmVar.fadeOutText();
@@ -68,16 +70,16 @@ public class DamageManager : MonoBehaviour
 
         if (timeElapsed >= timeOut && currentHP > 0)
         {
-
             // ダメージを取得
             damage = microVar.meanAmp * 500;
+            isDamage = damage >= 1;
 
-            if (damage > 1) 
+            if (isDamage) 
             {
                 damage = checkCriticalHit(damage);
                 smVar.updateScoreWithDamage((int) damage);
 
-                // ダメージは 0〜1000
+                // ダメージは 0〜500
                 // damageText.text = $"{(damage).ToString("f1")} ダメージ！";
                 // Debug.Log(damageText.text);
                 updateHP();
@@ -96,7 +98,8 @@ public class DamageManager : MonoBehaviour
         // Debug.Log($"現在のHP：{currentHP}");
         // Debug.Log($"スライダーの値： {HPSlider.value}");
 
-        if (currentHP <= 0) {
+        if (currentHP <= 0) 
+        {
             damage = 0;
             currentHP = 0;
 
@@ -119,9 +122,10 @@ public class DamageManager : MonoBehaviour
     // 会心の一撃設定：乱数が一定値を越えればダメージ10倍
     private float checkCriticalHit(float damage) 
     {
-        if (Random.value > 0.9) {
+        if (Random.value > 0.95) 
+        {
             damage *= 10;
-            // Debug.Log("<color=red>会心の一撃！</color>");
+            Debug.Log("<color=red>会心の一撃！</color>");
         }
         return damage;
     }

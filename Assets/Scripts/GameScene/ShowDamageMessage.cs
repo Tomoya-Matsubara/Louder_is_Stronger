@@ -28,8 +28,8 @@ public class ShowDamageMessage : MonoBehaviour
     public void showDamageText(float damage) {
         damageText.GetComponent<TextMeshProUGUI>().text = $"{(damage).ToString("f0")}";
 
-        GameObject obj = Instantiate(damageText, transform.position + 12*Vector3.left, Quaternion.identity);
-        obj.transform.parent = transform;
+        GameObject obj = Instantiate(damageText, transform.position, Quaternion.identity);
+        obj.transform.SetParent(gameObject.transform, false);
     }
 
     public void fadeOutText() {
