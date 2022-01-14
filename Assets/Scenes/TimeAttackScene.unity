@@ -392,9 +392,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.00043705106
     y: 0
-    width: 1
+    width: 0.9991259
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -734,7 +734,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 348933258550248263, guid: b159a7c19344e495d82909a4df6b0454,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: b1732465f9e1c46f48e1b66f9ecef517, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
