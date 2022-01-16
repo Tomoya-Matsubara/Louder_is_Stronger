@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e8158a8ce827048b1971ba4a00cbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdown: 1000
+  countdown: 30
 --- !u!114 &86860907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,9 +405,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.00043705106
+    x: 0
     y: 0
-    width: 0.9991259
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
