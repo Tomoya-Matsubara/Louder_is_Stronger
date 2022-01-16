@@ -24,7 +24,7 @@ public class EnemyBehaviourScript : MonoBehaviour
     void Update()
     {
         // WaitからAttackedに切り替える処理
-        if (damageVar.damage > 5)
+        if (damageVar.isDamage)
         {
             // WaitからAttackedに遷移する
             this.animator.SetBool(key_isAttacked, true);

@@ -4,14 +4,14 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class ScoreTextManager : MonoBehaviour
+public class BestScoreManager : MonoBehaviour
 {
     private TextMeshProUGUI scoreText;
+
     // Start is called before the first frame update
     void Start()
     {
         scoreText = gameObject.GetComponent<TextMeshProUGUI>();
-        scoreText.text = $"Score: {ScoreManager.score}";
 
         if (PlayerPrefs.HasKey("Best Score")) 
         {
@@ -20,17 +20,24 @@ public class ScoreTextManager : MonoBehaviour
             if (best_score < ScoreManager.score)
             {
                 PlayerPrefs.SetInt("Best Score", ScoreManager.score);
+                PlayerPrefs.Save();
+                scoreText.text = $"Best Score: {ScoreManager.score}";
+            }
+            else
+            {
+            scoreText.text = $"Best Score: {best_score}";
             }
         }
         else
         {
-            PlayerPrefs.SetInt("Best Score", ScoreManager.score);
+            scoreText.text = $"Best Score: {ScoreManager.score}";
         }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-  
+        
     }
 }
