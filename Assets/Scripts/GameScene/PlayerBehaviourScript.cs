@@ -24,7 +24,7 @@ public class PlayerBehaviourScript : MonoBehaviour
     {
         // WaitからShoutに切り替える処理
         // スペースキーを押下している
-        if (damageVar.damage > 5)
+        if (damageVar.isDamage)
         {
             // WaitからShoutに遷移する
             this.animator.SetBool(key_isShout, true);
