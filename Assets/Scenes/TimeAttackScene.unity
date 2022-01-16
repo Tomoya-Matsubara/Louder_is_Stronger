@@ -848,7 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTextObject: {fileID: 1424060271}
   damage: 0
-  timeOut: 0
+  timeOut: 1
 --- !u!1 &855267708
 GameObject:
   m_ObjectHideFlags: 0
