@@ -157,7 +157,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 0.6039216, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -204,18 +204,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &644342106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5535647647854093654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea2b9f68f9346b479f3189a85c3cff3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &654129481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,18 +1428,6 @@ Transform:
   m_Father: {fileID: 568313057417170141}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2246769600312404689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5535647647854093654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea2b9f68f9346b479f3189a85c3cff3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2247638117706244366
 Transform:
   m_ObjectHideFlags: 0
@@ -2415,8 +2391,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5159228070856605676}
   - component: {fileID: 4617311005352827183}
-  - component: {fileID: 2246769600312404689}
-  - component: {fileID: 644342106}
   - component: {fileID: 5535647647854093655}
   m_Layer: 0
   m_Name: P02
@@ -2434,7 +2408,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5535647647854093654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eae06215d98b284aa09c01111f5a577, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a22375975951a545bafc1d5e69b381a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5690132157749909328

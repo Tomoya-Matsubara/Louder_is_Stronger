@@ -345,7 +345,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223286683}
   m_CullTransparentMesh: 0
---- !u!21 &729492382
+--- !u!21 &255395882
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -935,9 +935,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0006725788
+    y: 0.00042194128
     width: 1
-    height: 0.99865484
+    height: 0.9991561
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -988,7 +988,7 @@ MonoBehaviour:
   width: 1080
   height: 1920
   pixelPerUnit: 200
---- !u!21 &1569425241
+--- !u!21 &1602133222
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 729492382}
+  m_Material: {fileID: 1602133222}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1569425241}
+  m_Material: {fileID: 255395882}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
