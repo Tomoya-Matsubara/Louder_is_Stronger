@@ -16,12 +16,13 @@ public class CharacterButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         SB_var = SetButton.GetComponent<setButton>();
         if(setButton.charaindex == id) {
-            gameObject.GetComponent<Image>().color = Color.red;
+            gameObject.GetComponent<Image>().color = new Color32(255, 22, 93, 255);
         }
         else {
-            gameObject.GetComponent<Image>().color = Color.black;
+            gameObject.GetComponent<Image>().color = new Color32(76, 68, 77, 255);
         }
         //Button1.GetComponent<Image>().color = Color.black;
         //Button2.GetComponent<Image>().color = Color.black;
@@ -31,10 +32,10 @@ public class CharacterButton : MonoBehaviour
 
     public void onClick_Button() {
         if (setButton.charaindex != id) {
-            gameObject.GetComponent<Image>().color = Color.red;
-            Button1.GetComponent<Image>().color = Color.black;
-            Button2.GetComponent<Image>().color = Color.black;
-            Button3.GetComponent<Image>().color = Color.black;
+            gameObject.GetComponent<Image>().color = new Color32(255, 22, 93, 255);
+            Button1.GetComponent<Image>().color = new Color32(76, 68, 77, 255);
+            Button2.GetComponent<Image>().color = new Color32(76, 68, 77, 255);
+            Button3.GetComponent<Image>().color = new Color32(76, 68, 77, 255);
         } 
         SB_var.setid(id);
     } 
